@@ -8,29 +8,31 @@
     <script>
         (function() {
             var ua = navigator.userAgent || navigator.vendor || window.opera;
-            if (ua.indexOf('Telegram') > -1) {
-                // ተጠቃሚው ቴሌግራም ውስጥ ከሆነ ወደ ውጪ ብሮውዘር እንዲቀይር ጥያቄ ይልካል
+            var isTelegram = ua.indexOf('Telegram') > -1;
+            
+            if (isTelegram) {
                 var currentUrl = window.location.href;
-                var separator = currentUrl.indexOf('?') === -1 ? '?' : '&';
-                
-                // የተወሰኑ ስልኮች ላይ ቀጥታ እንዲከፍት open_in_browser ፓራሜትር ይጨምራል
+                // በሊንኩ መጨረሻ ላይ open_in_browser=1 መኖሩን ያረጋግጣል
                 if (currentUrl.indexOf('open_in_browser=1') === -1) {
-                    window.location.href = currentUrl + separator + 'open_in_browser=1';
+                    var separator = currentUrl.indexOf('?') === -1 ? '?' : '&';
+                    var targetUrl = currentUrl + separator + 'open_in_browser=1';
+                    
+                    // ወደ አዲሱ ሊንክ ያስገድደዋል
+                    window.location.replace(targetUrl);
                 }
             }
         })();
     </script>
 
     <style>
-        /* የ Poppo እውነተኛ እና የደመቁ ቀለማት መግለጫ */
         :root {
-            --poppo-bg: #0C041C;       /* ጥልቅ የሳይበር ጀርባ ከለር */
-            --poppo-card: #180B30;     /* የሳጥን ከለር */
-            --poppo-purple: #A146FC;   /* ደማቅ ፐርፕል */
-            --poppo-pink: #FF007F;     /* ኒዮን ፒንክ */
-            --text-main: #FFFFFF;      /* ዋና ንፁህ ነጭ */
-            --text-gold: #FFD700;      /* የወርቅ/የብራናማ ቀለም ለፅሁፍ ማድመቂያ */
-            --text-sub: #E2D7F5;       /* ይበልጥ ጎልቶ የሚታይ ነጣ ያለ የፐርፕል ፅሁፍ */
+            --poppo-bg: #0C041C;       
+            --poppo-card: #180B30;     
+            --poppo-purple: #A146FC;   
+            --poppo-pink: #FF007F;     
+            --text-main: #FFFFFF;      
+            --text-gold: #FFD700;      
+            --text-sub: #E2D7F5;       
         }
 
         * {
@@ -59,6 +61,19 @@
             box-shadow: 0 20px 45px rgba(255, 0, 127, 0.15);
             text-align: center;
             border: 2px solid rgba(161, 70, 252, 0.3);
+        }
+
+        /* ቴሌግራም ውስጥ ሲከፈት ብቻ የሚታይ ማሳሰቢያ ቦክስ */
+        .tg-notice {
+            display: none;
+            background: rgba(255, 0, 127, 0.15);
+            border: 1px solid var(--poppo-pink);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text-gold);
+            font-weight: bold;
         }
 
         .logo-text {
@@ -136,13 +151,28 @@
             border: 2px solid rgba(165, 150, 191, 0.2);
         }
 
-        .video-container iframe {
+        .coming-soon-placeholder {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            background: linear-gradient(135deg, #180B30, #0C041C);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-sub);
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .coming-soon-placeholder span {
+            color: var(--poppo-pink);
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         .footer-text {
@@ -151,6 +181,7 @@
             margin-top: 40px;
             border-top: 2px solid rgba(165, 150, 191, 0.15);
             padding-top: 25px;
+            text-align: center;
         }
 
         .footer-text p {
@@ -170,19 +201,27 @@
 </head>
 <body>
     <div class="container">
+        
+        <div id="tgNoticeBox" class="tg-notice">
+            🔄 ምርጥ አጠቃቀም እንዲሆንልዎ ገጹን በ Chrome ወይም Safari እየከፈትን ነው... እባክዎ ጥቂት ሰከንድ ይጠብቁ።
+        </div>
 
         <div class="logo-text">Poppo Live የመመዝገቢያ ገጽ</div>
 
         <p class="subtitle">እንኳን በደህና መጡ! ከታች ያለውን ለመመዝገብ የሚለውን በተን በመንካት <span class="highlight">አፑን በቀጥታ ማውረድ</span> ይችላሉ። ካወረዱ በኋላ እንዴት አካውንት መክፈት እንደሚችሉ እና አካውንታችሁ ተቀባይነት አግኝቶ መከፈል እንዲጀምር ምን ማድረግ እንዳለባችሁ ከስር ባለው ቪዲዮ ማየት ይችላሉ። ከእኛ ጋር እንዴት እንደምትገናኙም ያሳያችኋል። አሁኑኑ ይመዝገቡና <span class="highlight">በየቀኑ በዶላር መከፈል ይጀምሩ!</span></p>
         
-        <a href=" https://invite-poppo.com/4dJc3T Download the app to meet more interesting friends from all over the world!  My ID:54816200 " target="_blank" class="register-btn">
+        <a href="የአንተ_የፖፖ_INVITATION_LINK_እዚህ_ይግባ" target="_blank" class="register-btn">
             👉 ለመመዝገብ እዚህ ይጫኑ (Register)
         </a>
 
         <div class="video-section">
             <div class="video-title">🎬 የአመዘጋገብ መመሪያ ቪዲዮ፦</div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/የቪዲዮ_ID_እዚህ_ይግባ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="coming-soon-placeholder">
+                    <span>⏳</span>
+                    የአመዘጋገብ መመሪያ ቪዲዮ በቅርቡ ይለቀቃል!<br>
+                    <small style="font-size:12px; color:#aaaaaa; font-weight:normal; margin-top:5px;">አሁን ግን ከላይ ያለውን በተን በመንካት መመዝገብ ይችላሉ።</small>
+                </div>
             </div>
         </div>
 
@@ -194,7 +233,13 @@
                 </svg>
             </a>
         </div>
-
     </div>
+
+    <script>
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        if (ua.indexOf('Telegram') > -1) {
+            document.getElementById('tgNoticeBox').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
