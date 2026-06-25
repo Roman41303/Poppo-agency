@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poppo Live Registration & Guide</title>
+    
+    <script>
+        (function() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            if (ua.indexOf('Telegram') > -1) {
+                // ተጠቃሚው ቴሌግራም ውስጥ ከሆነ ወደ ውጪ ብሮውዘር እንዲቀይር ጥያቄ ይልካል
+                var currentUrl = window.location.href;
+                var separator = currentUrl.indexOf('?') === -1 ? '?' : '&';
+                
+                // የተወሰኑ ስልኮች ላይ ቀጥታ እንዲከፍት open_in_browser ፓራሜትር ይጨምራል
+                if (currentUrl.indexOf('open_in_browser=1') === -1) {
+                    window.location.href = currentUrl + separator + 'open_in_browser=1';
+                }
+            }
+        })();
+    </script>
+
+    <style>
+        /* የ Poppo እውነተኛ እና የደመቁ ቀለማት መግለጫ */
+        :root {
+            --poppo-bg: #0C041C;       /* ጥልቅ የሳይበር ጀርባ ከለር */
+            --poppo-card: #180B30;     /* የሳጥን ከለር */
+            --poppo-purple: #A146FC;   /* ደማቅ ፐርፕል */
+            --poppo-pink: #FF007F;     /* ኒዮን ፒንክ */
+            --text-main: #FFFFFF;      /* ዋና ንፁህ ነጭ */
+            --text-gold: #FFD700;      /* የወርቅ/የብራናማ ቀለም ለፅሁፍ ማድመቂያ */
+            --text-sub: #E2D7F5;       /* ይበልጥ ጎልቶ የሚታይ ነጣ ያለ የፐርፕል ፅሁፍ */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--poppo-bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: var(--poppo-card);
+            padding: 40px 25px;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(255, 0, 127, 0.15);
+            text-align: center;
+            border: 2px solid rgba(161, 70, 252, 0.3);
+        }
+
+        .logo-text {
+            font-size: 30px;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 15px var(--poppo-pink), 0 0 5px var(--poppo-purple);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-sub); 
+            margin-bottom: 35px;
+            line-height: 1.5;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .highlight {
+            color: var(--text-gold);
+            font-weight: 800;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .register-btn {
+            display: inline-block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--poppo-pink), var(--poppo-purple));
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 18px;
+            font-size: 20px;
+            font-weight: 900;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .register-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(255, 0, 127, 0.7);
+            filter: brightness(1.2);
+        }
+
+        .video-section {
+            text-align: left;
+        }
+
+        .video-title {
+            font-size: 18px;
+            color: var(--text-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            border: 2px solid rgba(165, 150, 191, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-top: 40px;
+            border-top: 2px solid rgba(165, 150, 191, 0.15);
+            padding-top: 25px;
+        }
+
+        .footer-text p {
+            margin-bottom: 15px;
+            letter-spacing: 1.2px;
+            font-weight: 700;
+        }
+
+        .telegram-icon {
+            transition: transform 0.2s;
+        }
+
+        .telegram-icon:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="logo-text">Poppo Live የመመዝገቢያ ገጽ</div>
+
+        <p class="subtitle">እንኳን በደህና መጡ! ከታች ያለውን ለመመዝገብ የሚለውን በተን በመንካት <span class="highlight">አፑን በቀጥታ ማውረድ</span> ይችላሉ። ካወረዱ በኋላ እንዴት አካውንት መክፈት እንደሚችሉ እና አካውንታችሁ ተቀባይነት አግኝቶ መከፈል እንዲጀምር ምን ማድረግ እንዳለባችሁ ከስር ባለው ቪዲዮ ማየት ይችላሉ። ከእኛ ጋር እንዴት እንደምትገናኙም ያሳያችኋል። አሁኑኑ ይመዝገቡና <span class="highlight">በየቀኑ በዶላር መከፈል ይጀምሩ!</span></p>
+        
+        <a href=" https://invite-poppo.com/4dJc3T Download the app to meet more interesting friends from all over the world!  My ID:54816200 " target="_blank" class="register-btn">
+            👉 ለመመዝገብ እዚህ ይጫኑ (Register)
+        </a>
+
+        <div class="video-section">
+            <div class="video-title">🎬 የአመዘጋገብ መመሪያ ቪዲዮ፦</div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/የቪዲዮ_ID_እዚህ_ይግባ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="footer-text">
+            <p>Created by <b>WEB DESIGNER NAHOM</b></p>
+            <a href="https://t.me/የአንተ_ዩዘርኔም" target="_blank" class="telegram-icon" style="text-decoration: none; display: inline-block; vertical-align: middle;">
+                <svg viewBox="0 0 24 24" width="42" height="42" style="background-color: #0088cc; border-radius: 50%; padding: 8px; fill: white; box-shadow: 0 5px 15px rgba(0,136,204,0.5);">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2s-.14-.07-.2-.05c-.09.02-1.5.95-4.28 2.78-.4.27-.76.4-1.09.39-.36-.01-1.05-.2-1.56-.37-.63-.2-1.13-.31-1.08-.66.02-.13.22-.27.61-.41 2.4-1.06 4.02-1.77 4.86-2.12 2.31-.97 2.78-1.13 3.1-1.14.07 0 .22.01.32.09.09.07.12.17.13.23.01.06.01.12.01.18z"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
