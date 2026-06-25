@@ -4,35 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poppo Live Registration & Guide</title>
-    
-    <script>
-        (function() {
-            var ua = navigator.userAgent || navigator.vendor || window.opera;
-            var isTelegram = ua.indexOf('Telegram') > -1;
-            
-            if (isTelegram) {
-                var currentUrl = window.location.href;
-                // በሊንኩ መጨረሻ ላይ open_in_browser=1 መኖሩን ያረጋግጣል
-                if (currentUrl.indexOf('open_in_browser=1') === -1) {
-                    var separator = currentUrl.indexOf('?') === -1 ? '?' : '&';
-                    var targetUrl = currentUrl + separator + 'open_in_browser=1';
-                    
-                    // ወደ አዲሱ ሊንክ ያስገድደዋል
-                    window.location.replace(targetUrl);
-                }
-            }
-        })();
-    </script>
-
     <style>
+        /* የ Poppo እውነተኛ እና የደመቁ ቀለማት መግለጫ */
         :root {
-            --poppo-bg: #0C041C;       
-            --poppo-card: #180B30;     
-            --poppo-purple: #A146FC;   
-            --poppo-pink: #FF007F;     
-            --text-main: #FFFFFF;      
-            --text-gold: #FFD700;      
-            --text-sub: #E2D7F5;       
+            --poppo-bg: #0C041C;       /* ጥልቅ የሳይበር ጀርባ ከለር */
+            --poppo-card: #180B30;     /* የሳጥን ከለር */
+            --poppo-purple: #A146FC;   /* ደማቅ ፐርፕል */
+            --poppo-pink: #FF007F;     /* ኒዮን ፒንክ */
+            --text-main: #FFFFFF;      /* ዋና ንፁህ ነጭ */
+            --text-gold: #FFD700;      /* የወርቅ/የብራናማ ቀለም ለፅሁፍ ማድመቂያ */
+            --text-sub: #E2D7F5;       /* ይበልጥ ጎልቶ የሚታይ ነጣ ያለ የፐርፕል ፅሁፍ */
         }
 
         * {
@@ -58,50 +39,41 @@
             background: var(--poppo-card);
             padding: 40px 25px;
             border-radius: 24px;
-            box-shadow: 0 20px 45px rgba(255, 0, 127, 0.15);
+            box-shadow: 0 20px 45px rgba(255, 0, 127, 0.15); /* የፒንክ ስስ የጥላ ፍንጣቂ */
             text-align: center;
-            border: 2px solid rgba(161, 70, 252, 0.3);
+            border: 2px solid rgba(161, 70, 252, 0.3); /* የፐርፕል መስመሩ ጎላ እንዲል */
         }
 
-        /* ቴሌግራም ውስጥ ሲከፈት ብቻ የሚታይ ማሳሰቢያ ቦክስ */
-        .tg-notice {
-            display: none;
-            background: rgba(255, 0, 127, 0.15);
-            border: 1px solid var(--poppo-pink);
-            padding: 12px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: var(--text-gold);
-            font-weight: bold;
-        }
-
+        /* ርዕሱ በጣም ደምቆ ጥላ እንዲኖረው (Glow Effect) */
         .logo-text {
             font-size: 30px;
-            font-weight: 900;
+            font-weight: 900; /* እጅግ በጣም Bold የተደረገ */
             color: var(--text-main);
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            text-shadow: 0 0 15px var(--poppo-pink), 0 0 5px var(--poppo-purple);
+            text-shadow: 0 0 15px var(--poppo-pink), 0 0 5px var(--poppo-purple); /* የበራ ፅሁፍ ውጤት */
         }
 
+        /* ንዑስ ፅሁፉ በደንብ ጎልቶ እንዲነበብ */
         .subtitle {
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 600; /* መካከለኛ Bold */
             color: var(--text-sub); 
             margin-bottom: 35px;
-            line-height: 1.5;
+            line-height: 1.4;
             text-align: justify;
             text-justify: inter-word;
         }
 
+        /* በፅሁፉ ውስጥ ያሉ ቁልፍ ቃላትን ብራናማ/ወርቃማ ለማድረግ */
         .highlight {
             color: var(--text-gold);
-            font-weight: 800;
+            font-weight: 800; /* በጣም Bold */
             text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
         }
 
+        /* የመመዝገቢያ ሊንክ በተን - ይበልጥ ደማቅና ትልቅ */
         .register-btn {
             display: inline-block;
             width: 100%;
@@ -110,19 +82,21 @@
             text-decoration: none;
             padding: 18px;
             font-size: 20px;
-            font-weight: 900;
+            font-weight: 900; /* እጅግ በጣም Bold */
             border-radius: 50px;
             box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5);
             transition: all 0.3s ease;
             margin-bottom: 40px;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            border: none;
         }
 
         .register-btn:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 30px rgba(255, 0, 127, 0.7);
-            filter: brightness(1.2);
+            filter: brightness(1.2); /* ሲነኩት ይበልጥ ይበራል */
         }
 
         .video-section {
@@ -131,18 +105,19 @@
 
         .video-title {
             font-size: 18px;
-            color: var(--text-gold);
+            color: var(--text-gold); /* የቪዲዮው ርዕስ ብራናማ/ወርቃማ ሆኗል */
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-weight: 800;
+            font-weight: 800; /* Bold */
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
         }
 
+        /* ቪዲዮው በስልክም በኮምፒውተርም ልክ እንዲሆን (Responsive) */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
             border-radius: 16px;
@@ -151,28 +126,13 @@
             border: 2px solid rgba(165, 150, 191, 0.2);
         }
 
-        .coming-soon-placeholder {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #180B30, #0C041C);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-sub);
-            font-weight: bold;
-            font-size: 16px;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .coming-soon-placeholder span {
-            color: var(--poppo-pink);
-            font-size: 24px;
-            margin-bottom: 10px;
+            border: 0;
         }
 
         .footer-text {
@@ -181,7 +141,6 @@
             margin-top: 40px;
             border-top: 2px solid rgba(165, 150, 191, 0.15);
             padding-top: 25px;
-            text-align: center;
         }
 
         .footer-text p {
@@ -201,44 +160,51 @@
 </head>
 <body>
     <div class="container">
-        
-        <div id="tgNoticeBox" class="tg-notice">
-            🔄 ምርጥ አጠቃቀም እንዲሆንልዎ ገጹን በ Chrome ወይም Safari እየከፈትን ነው... እባክዎ ጥቂት ሰከንድ ይጠብቁ።
-        </div>
 
         <div class="logo-text">Poppo Live የመመዝገቢያ ገጽ</div>
 
-        <p class="subtitle">እንኳን በደህና መጡ! ከታች ያለውን ለመመዝገብ የሚለውን በተን በመንካት <span class="highlight">አፑን በቀጥታ ማውረድ</span> ይችላሉ። ካወረዱ በኋላ እንዴት አካውንት መክፈት እንደሚችሉ እና አካውንታችሁ ተቀባይነት አግኝቶ መከፈል እንዲጀምር ምን ማድረግ እንዳለባችሁ ከስር ባለው ቪዲዮ ማየት ይችላሉ። ከእኛ ጋር እንዴት እንደምትገናኙም ያሳያችኋል። አሁኑኑ ይመዝገቡና <span class="highlight">በየቀኑ በዶላር መከፈል ይጀምሩ!</span></p>
+        <p class="subtitle">እንኳን በደህና መጡ! ከታች ያለውን ለመመዝገብ የሚለውን በተን በመንካት <span class="highlight">አፑን በቀጥታ ማውረድ</span> ይችላሉ። ካወረዱ በኋላ እንዴት አካውንት መክፈት እንደሚችሉ እና አካውንታችሁ ተቀባይነት አግኝቶ መከፈል እንዲጀምር ምን ማድረግ እንዳለባችሁ ከስር ባለው ቪዲዮ ማየት ይችላሉ። <br>ከእኛ ጋር እንዴት እንደምትገናኙም ያሳያችኋል። አሁኑኑ ይመዝገቡና <span class="highlight">በየቀኑ በዶላር መከፈል ይጀምሩ!</span></p>
         
-        <a href=" https://invite-poppo.com/4dJc3T Download the app to meet more interesting friends from all over the world!  My ID:54816200 " target="_blank" class="register-btn">
+        <!-- 🌟 ሙሉው ሊንክ ሳይቆረጥ እዚህ ገብቷል፤ ሲጫኑት በጃቫስክሪፕት በኩል ቀጥታ Chromeን ያስገድደዋል -->
+        <button onclick="openInChrome()" class="register-btn">
             👉 ለመመዝገብ እዚህ ይጫኑ (Register)
-        </a>
+        </button>
 
         <div class="video-section">
             <div class="video-title">🎬 የአመዘጋገብ መመሪያ ቪዲዮ፦</div>
             <div class="video-container">
-                <div class="coming-soon-placeholder">
-                    <span>⏳</span>
-                    የአመዘጋገብ መመሪያ ቪዲዮ በቅርቡ ይለቀቃል!<br>
-                    <small style="font-size:12px; color:#aaaaaa; font-weight:normal; margin-top:5px;">አሁን ግን ከላይ ያለውን በተን በመንካት መመዝገብ ይችላሉ።</small>
-                </div>
+                <!-- ⚠️ የቪዲዮ_ID_እዚህ_ይግባ በሚለው ቦታ የዩቲዩብ ቪዲዮህን መታወቂያ ብቻ አስገባ -->
+                <iframe src="https://www.youtube.com/embed/የቪዲዮ_ID_እዚህ_ይግባ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="footer-text">
             <p>Created by <b>WEB DESIGNER NAHOM</b></p>
+            <!-- ⚠️ የአንተ_ዩዘርኔም በሚለው ቦታ ያንተን የቴሌግራም መለያ (Username) ብቻ አስገባ -->
             <a href="https://t.me/የአንተ_ዩዘርኔም" target="_blank" class="telegram-icon" style="text-decoration: none; display: inline-block; vertical-align: middle;">
                 <svg viewBox="0 0 24 24" width="42" height="42" style="background-color: #0088cc; border-radius: 50%; padding: 8px; fill: white; box-shadow: 0 5px 15px rgba(0,136,204,0.5);">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2s-.14-.07-.2-.05c-.09.02-1.5.95-4.28 2.78-.4.27-.76.4-1.09.39-.36-.01-1.05-.2-1.56-.37-.63-.2-1.13-.31-1.08-.66.02-.13.22-.27.61-.41 2.4-1.06 4.02-1.77 4.86-2.12 2.31-.97 2.78-1.13 3.1-1.14.07 0 .22.01.32.09.09.07.12.17.13.23.01.06.01.12.01.18z"/>
                 </svg>
             </a>
         </div>
+
     </div>
 
+    <!-- 🛠️ ቴሌግራምን ሰብሮ ሙሉውን ሊንክ በChrome የሚከፍተው ድንቅ የጃቫስክሪፕት ሲስተም -->
     <script>
-        var ua = navigator.userAgent || navigator.vendor || window.opera;
-        if (ua.indexOf('Telegram') > -1) {
-            document.getElementById('tgNoticeBox').style.display = 'block';
+        function openInChrome() {
+            var poppoLink = "https://invite-poppo.com/4dJc3T";
+            
+            // የ intent አወቃቀር ሙሉውን ሊንክ ሳይቆርጥ በውስጡ ይይዛል
+            var chromeIntent = "intent://" + poppoLink.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+            
+            // ተጠቃሚው አንድሮይድ ስልክ የሚጠቀም ከሆነ በChrome ያስገድደዋል
+            if (/Android/i.test(navigator.userAgent)) {
+                window.location.href = chromeIntent;
+            } else {
+                // አይፎን ወይም ኮምፒውተር ከሆነ ደግሞ በቀጥታ ይከፍተዋል
+                window.open(poppoLink, "_blank");
+            }
         }
     </script>
 </body>
