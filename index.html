@@ -36,62 +36,49 @@
             max-width: 500px;
             width: 100%;
             background: var(--poppo-card);
-            padding: 40px 25px;
+            padding: 30px 25px;
             border-radius: 24px;
             box-shadow: 0 20px 45px rgba(255, 0, 127, 0.15);
             text-align: center;
             border: 2px solid rgba(161, 70, 252, 0.3);
         }
 
-        /* ቴሌግራም ውስጥ ሲከፈት ሙሉ ገጹን የሚሸፍን ማስገደጃ ቦክስ */
-        #telegramOverlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0C041C;
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
+        /* ሙሉ ገፅ ሳይሆን ከላይ የሚቀመጥ ምርጡ የማሳሰቢያ ቦክስ */
+        .tg-top-banner {
+            background: #180B30;
+            border: 2px solid var(--poppo-pink);
+            padding: 20px 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
+            margin-bottom: 25px;
             text-align: center;
         }
 
-        .tg-box {
-            background: #180B30;
-            border: 2px solid var(--poppo-pink);
-            padding: 35px 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 127, 0.3);
-            max-width: 400px;
-        }
-
+        /* አንተ የወደድከው የሚንቀሳቀሰው ምልክት */
         .tg-icon-animation {
-            font-size: 50px;
-            margin-bottom: 20px;
+            font-size: 40px;
+            margin-bottom: 10px;
             animation: bounce 2s infinite;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-7px); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
         .tg-title {
             color: var(--text-gold);
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
 
         .tg-desc {
             color: var(--text-sub);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 12px;
             font-weight: 600;
         }
 
@@ -101,8 +88,9 @@
             padding: 10px;
             border-radius: 4px;
             text-align: left;
-            font-size: 14px;
+            font-size: 13px;
             color: #FFFFFF;
+            line-height: 1.4;
         }
 
         .logo-text {
@@ -180,28 +168,13 @@
             border: 2px solid rgba(165, 150, 191, 0.2);
         }
 
-        .coming-soon-placeholder {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #180B30, #0C041C);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-sub);
-            font-weight: bold;
-            font-size: 16px;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .coming-soon-placeholder span {
-            color: var(--poppo-pink);
-            font-size: 24px;
-            margin-bottom: 10px;
+            border: 0;
         }
 
         .footer-text {
@@ -222,42 +195,40 @@
 </head>
 <body>
 
-    <div id="telegramOverlay">
-        <div class="tg-box">
+    <div class="container">
+        
+        <!-- አንተ የወደድከው የሚንቀሳቀሰው ማስጠንቀቂያ - አሁን ከላይ ብቻ ነው የሚቀመጠው -->
+        <div class="tg-top-banner">
             <div class="tg-icon-animation">🌐⚙️</div>
             <div class="tg-title">⚠️ ትኩረት ለተጠቃሚዎች!</div>
-            <div class="tg-desc">የአመዘጋገብ ቪዲዮው እና የኢንቪቴሽን ሊንኩ በትክክል እንዲሰሩልዎ ገጹ በስልክዎ ዋና ብሮውዘር መከፈት አለበት።</div>
+            <div class="tg-desc">የአመዘጋገብ ቪዲዮው እና app አዲስ ለሚገቡ ሰዎች የሚሰጠው welcom bones በትክክል እንዲሰራ በትክክል እንዲሰሩልዎ ገጹ በስልክዎ ዋና ብሮውዘር መከፈት አለበት።</div>
             <div class="tg-instruction">
                 <b>እንዴት እንደሚከፈት፦</b><br>
                 1. ከላይ በቀኝ በኩል ያሉትን <b>3 ነጥቦች (⋮)</b> ይንኩ።<br>
                 2. ከሚመጡት አማራጮች <b>'Open in browser'</b> ወይም <b>'በብሮውዘር ክፈት'</b> የሚለውን ይምረጡ።
             </div>
         </div>
-    </div>
 
-    <div class="container">
+        <!-- ዋናው ዌብሳይት ይዘት -->
         <div class="logo-text">Poppo Live የመመዝገቢያ ገጽ</div>
 
         <p class="subtitle">እንኳን በደህና መጡ! ከታች ያለውን ለመመዝገብ የሚለውን በተን በመንካት <span class="highlight">አፑን በቀጥታ ማውረድ</span> ይችላሉ። ካወረዱ በኋላ እንዴት አካውንት መክፈት እንደሚችሉ እና አካውንታችሁ ተቀባይነት አግኝቶ መከፈል እንዲጀምር ምን ማድረግ እንዳለባችሁ ከስር ባለው ቪዲዮ ማየት ይችላሉ። አሁኑኑ ይመዝገቡና <span class="highlight">በየቀኑ በዶላር መከፈል ይጀምሩ!</span></p>
         
-        <a href="የአንተ_የፖፖ_INVITATION_LINK_እዚህ_ይግባ" target="_blank" class="register-btn">
+        <a href=" https://invite-poppo.com/4dJc3T Download the app to meet more interesting friends from all over the world!  My ID:54816200" target="_blank" class="register-btn">
             👉 ለመመዝገብ እዚህ ይጫኑ (Register)
         </a>
 
+        <!-- የቪዲዮ ማጫወቻ ክፍል -->
         <div class="video-section">
             <div class="video-title">🎬 የአመዘጋገብ መመሪያ ቪዲዮ፦</div>
             <div class="video-container">
-                <div class="coming-soon-placeholder">
-                    <span>⏳</span>
-                    የአመዘጋገብ መመሪያ ቪዲዮ በቅርቡ ይለቀቃል!<br>
-                    <small style="font-size:12px; color:#aaaaaa; font-weight:normal; margin-top:5px;">አሁን ግን ከላይ ያለውን በተን በመንካት መመዝገብ ይችላሉ።</small>
-                </div>
+                <iframe src="https://www.youtube.com/embed/የቪዲዮ_ID_እዚህ_ይግባ" allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="footer-text">
             <p>Created by <b>WEB DESIGNER NAHOM</b></p>
-            <a href="https://t.me/የአንተ_ዩዘርኔም" target="_blank" style="text-decoration: none; display: inline-block; vertical-align: middle;">
+            <a href="https://t.me/@romi4567" target="_blank" style="text-decoration: none; display: inline-block; vertical-align: middle;">
                 <svg viewBox="0 0 24 24" width="42" height="42" style="background-color: #0088cc; border-radius: 50%; padding: 8px; fill: white; box-shadow: 0 5px 15px rgba(0,136,204,0.5);">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.05-.2s-.14-.07-.2-.05c-.09.02-1.5.95-4.28 2.78-.4.27-.76.4-1.09.39-.36-.01-1.05-.2-1.56-.37-.63-.2-1.13-.31-1.08-.66.02-.13.22-.27.61-.41 2.4-1.06 4.02-1.77 4.86-2.12 2.31-.97 2.78-1.13 3.1-1.14.07 0 .22.01.32.09.09.07.12.17.13.23.01.06.01.12.01.18z"/>
                 </svg>
@@ -265,14 +236,5 @@
         </div>
     </div>
 
-    <script>
-        (function() {
-            var ua = navigator.userAgent || navigator.vendor || window.opera;
-            // ተጠቃሚው በቴሌግራም ውስጥ ከሆነ እና ሊንኩ ላይ open_in_browser ከሌለ ማሳሰቢያውን ያሳያል
-            if (ua.indexOf('Telegram') > -1 && window.location.href.indexOf('open_in_browser=1') === -1) {
-                document.getElementById('telegramOverlay').style.display = 'flex';
-            }
-        })();
-    </script>
 </body>
 </html>
